@@ -11,7 +11,7 @@ const fi = (function() {
   }
   return collection
     },
-  
+
   map: function(collection, callback) {
   const arrayCollection = (Array.isArray(collection))? collection : Object.values(collection)
   const newCollection = [];
@@ -19,9 +19,9 @@ const fi = (function() {
   newCollection.push(callback(element))
   }
   return newCollection
-  
+
   },
-  
+
   reduce: function(collection, callback, acc) {
   const arrayCollection = (Array.isArray(collection))? collection : Object.values(collection)
   if (acc) {
@@ -37,7 +37,7 @@ const fi = (function() {
     }
   return acc;
       }
-  
+
     },
   find: function(collection, predicate) {
   const arrayCollection = (Array.isArray(collection))? collection : Object.values(collection)
@@ -46,7 +46,7 @@ const fi = (function() {
   return element
   }
   }
-  
+
   },
     filter: function(collection, predicate) {
     const arrayCollection = (Array.isArray(collection))? collection : Object.values(collection)
@@ -58,20 +58,20 @@ const fi = (function() {
       }
   return newArray
     },
-  
+
   size: function(collection) {
   const arrayCollection = (Array.isArray(collection))? collection : Object.values(collection)
   return arrayCollection.length
     },
-  
+
   first: function(array, n=1) {
   return (n === 1)? array.slice(0, n)[0] : array.slice(0, n)
     },
-  
+
     last: function(array, n=-1) {
     return (n === -1)? array.slice(n)[0] : array.slice(-n)
     },
-  
+
     compact: function(array) {
     const newArray = [];
     for (const element of array) {
@@ -81,14 +81,14 @@ const fi = (function() {
       }
     return newArray
     },
-  
+
     sortBy: function(array, callback) {
       const newArray = [...array]
       return newArray.sort(function(a,b) {
         return callback(a) - callback(b)
       });
     },
-  
+
     flatten: function(array, shallow, newArr = []) {
     if (shallow) {
     return newArr.concat.apply([], array)
@@ -104,7 +104,7 @@ const fi = (function() {
     return newArr
       }
     },
-  
+
     uniq: function(array, isSorted, callback = a => a) {
     if (isSorted) {
     const newArr = [array[0]]
@@ -114,7 +114,7 @@ const fi = (function() {
           }
         }
     return newArr
-  
+
       }
      else {
     const uniqueArray = [  ]
@@ -129,7 +129,7 @@ const fi = (function() {
           uniqueArray.push(element);
           };
         };
-  
+
         return uniqueArray;
       }
     },
@@ -140,16 +140,16 @@ const fi = (function() {
       }
       return keys
     },
-  
+
     values: function(obj) {
       const values = [];
       for (const key in obj) {
         values.push(obj[key])
       }
       return values
-  
+
     },
-  
+
     functions: function(obj) {
     const fnArray = [  ];
     for (const key in obj) {
@@ -159,11 +159,11 @@ const fi = (function() {
       }
       return fnArray
     }
-  
-  
+
+
   }
   })()
-  
+
   fi.libraryMethod()
   }
 })()
